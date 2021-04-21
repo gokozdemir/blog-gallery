@@ -13,10 +13,13 @@ app.set('views', path.resolve(__dirname, './src/views'))
 
 //Layout yolu değiştirme
 // app.set('layout', path.resolve(__dirname, './src/views/layout/index1.ejs'))
+
+app.use(express.static('public'))
 app.use(expressEjsLayouts)
 
 
 app.use('/', blogRouter)
+app.use('/blog', blogRouter)
 
 
 app.listen(3000, () => {

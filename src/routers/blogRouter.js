@@ -1,10 +1,11 @@
 import {Router}  from 'express'
-import {getAllArticles} from '../controllers/blogController'
+import {getAllArticles, getOneArticle} from '../controllers/blogController'
 
 
 const blogRouter = Router()
 
 blogRouter.get('/', getAllArticles)
+blogRouter.get('/:id', getOneArticle)
 
 
 export {

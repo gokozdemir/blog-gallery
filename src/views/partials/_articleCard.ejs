@@ -1,0 +1,43 @@
+<% 
+let height=""
+
+if(index == undefined) {
+   height = '300' 
+}
+else { 
+  const mod = index % 10
+  if(mod === 0){
+    height = '600'
+  }else{
+    height = '30' + mod 
+  }
+  
+} 
+%>
+
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="https://source.unsplash.com/random/400x<%= height %>" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+
+        <div class="media-content">
+          <p class="title is-4">
+            <%- article.title.rendered %>
+          </p>
+        </div>
+      </div>
+
+      <div class="content">
+        <%- index==undefined ? article.content.rendered : article.excerpt.rendered.slice(0, 50) %>
+        <% if (index !== undefined) { %>
+          <a href="/blog/<%-article.id%>">Devamını Oku...</a>
+        <% } %>
+        
+        
+      </div>
+    </div>
+  </div>

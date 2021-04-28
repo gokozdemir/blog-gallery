@@ -1,1 +1,22 @@
-<h1>Tüm makaleler</h1>
+<%- include('../partials/_header') %> 
+
+<div class="columns is-multiline">
+    <% articles.forEach((article, index) => { %>
+        <div class="column is-4">
+            <%- include('../partials/_articleCard.ejs', {article, index}) %>
+        </div>
+    <% }) %>
+</div>
+
+<% 
+    const pageCount = pagination['x-wp-totalpages']
+    const totalDataCount = pagination['x-wp-total']
+%> 
+
+<div class="block"></div>
+<div class="column is-12">
+    <%- include('../partials/_pagination.ejs',{pageCount, totalDataCount, activePage}) %>
+</div>
+
+<div class="block"></div>
+

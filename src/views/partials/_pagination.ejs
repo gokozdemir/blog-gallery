@@ -1,0 +1,24 @@
+<% 
+  const previous = parseInt(activePage) - 1
+  const next = parseInt(activePage) + 1
+
+  
+%> 
+
+<% if(pageCount > 1) { %>
+  <nav class="pagination is-medium" role="navigation" aria-label="pagination">
+  <a  <%- activePage != 1 ? 'href=/blog?page=' + previous : '' %> class="pagination-previous" <%- activePage == 1 ? 'disabled' : '' %> >Önceki</a>
+  <a  <%- activePage != pageCount ? 'href=/blog?page=' + next : '' %> class="pagination-next" <%- activePage == pageCount ? 'disabled' : '' %>>Sonraki</a>
+  <ul class="pagination-list">
+    <% for( let index=1; index <=pageCount; index++ ) { %>
+      <li>
+        <a href="/blog?page=<%= index %> " class="pagination-link <%- index==activePage ? 'is-current' : '' %> " aria-label="Goto page <%- index %> ">
+          <%- index %>
+        </a>
+      </li>
+      <% } %>
+  </ul>
+</nav>
+<% } %>
+
+

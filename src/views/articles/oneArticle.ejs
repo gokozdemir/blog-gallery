@@ -1,1 +1,10 @@
-<h1>Tek makale</h1>
+<%- include('../partials/_header') %>
+
+<div class="container">
+    <div class="columns">
+        <div class="column is-10 is-offset-1">
+            <%- include('../partials/_articleCard', {article, index:undefined}) %>
+        </div>
+    </div>
+    
+</div>
